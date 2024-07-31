@@ -1,10 +1,13 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import SearchLocation from "./components/SearchLocation";
+import Main from "./components/Main";
 
 function App() {
   const [locationName, setLocationName] = useState("");
   const [locationObj, setLocationObj] = useState({});
+  const [err, setErr] = useState("");
+
+  const [theme, setTheme] = useState("light");
   useEffect(() => {
     /*fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=1d668ceaba92432fb3890228240802&q=${locationName}`,
@@ -35,16 +38,23 @@ function App() {
         };
         console.log("object:", obj);
         setLocationObj(obj);
-      });*/
+      }).catch(err){
+        setErr(err);
+      };*/
   }, []);
   function changeLocation(name) {
     setLocationName(name);
   }
+  function changeTheme() {
+    let toggle = theme === "light" ? "dark" : "light";
+    setTheme(toggle);
+  }
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
+      <button onClick={changeTheme}>{theme}</button>
       {locationName}
       {JSON.stringify(locationObj)}
-      <SearchLocation changeLocation={changeLocation} />
+      <Main changeLocation={changeLocation} />
     </div>
   );
 }

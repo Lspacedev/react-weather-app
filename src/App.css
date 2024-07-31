@@ -40,6 +40,7 @@ button {
   display: flex;
   border-radius: 40px;
   border: 1px solid gray;
+  background-color: white;
 }
 
 .search-div input[type="search"] {
@@ -68,4 +69,12 @@ button {
 }
 #search-btn:hover {
   background-color: rgb(216, 216, 216);
+}
+
+.dark {
+  background-color: lightgray;
+}
+
+.light {
+  background-color: azure;
 }

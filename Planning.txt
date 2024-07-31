@@ -1,0 +1,53 @@
+#Weather App
+
+Problem:  Create a weather app that allows users to see their current location’s weather as well as any other location they search for
+ 
+Requirements: 
+    User interface:
+    What should it allow users to see?
+        1. Temperature.
+        2. Humidity.
+        3. Wind speed.
+    2. Responsive to different screens.
+    3. Should also include search bar to find different locations.
+
+    Inputs:
+    1. Location Name.
+ 
+    Features:
+    Must be able to:
+    1. Display current location weather.
+    2. View hourly and daily forecasts.
+    3. Change between hourly and daily.
+    4. Get user permission for their location.
+    5. Allow weather notifications.
+    6. Allow users to save locations and switch to those locations.
+    7. Change app theme.
+
+
+Solution: 
+    1. Get location name as input from search bar.
+    2. Use location name to fetch weather api data.
+    3. Store data in location object;
+    4. Use location object to render weather information in the app.
+    5. Use search bar to allow location name change.
+
+    Functions:
+    1. changeLocation - function to change location name in state.
+    2. handleSearchLocation - function to get location from search.
+    3. changeTheme - function to change app theme.
+    4. changeDisplayUnit - function to change temperature units.
+
+
+    Components:
+    1. DayCard - stores weather information for the day.
+    2. HighlightCard - stores weather highlights.
+    3. LocationInfoCard - stores current location's weather information.
+    4. SearchLocation - stores search bar. 
+    5. HeadingCards - headings for Sidebar.
+    6. Sidebar - app's Sidebar.
+    7. Main - main component for the app that renders all the other components.
+    8. SavedLocationCard - stores saved location.
+   
+
+   

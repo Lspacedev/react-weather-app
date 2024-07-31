@@ -1,8 +1,11 @@
 Global variables, object:
-    1. Create location name String, locationName;
-    2. Create location Object, locationObj;
-    3. Create saved locations Array, savedLocations;
-    4. Create theme String, theme;
+    1. Createv variable, for location name String, locationName;
+    2. Create variable, for location - Object, locationObj;
+    3. Create variable, for saved locations - Array, savedLocations;
+    4. Create variable, for theme - String, theme;
+    5. Create variable, for temperature unit - String, tempUnit;
+    6. Create variable, for severe weather check - Boolean, severeWeather = false;
+
 Get location information from weather api:
     useEffect(()=>{
         fetch(link);
@@ -20,6 +23,16 @@ Functions:
     
     3. Function changeTheme(inputs: themeName):
         1. Set theme to themeName;
+        
+    4. Function changeDisplayUnit(inputs: unit):
+        1. Set tempUnit to unit;
+
+    5. Function weatherAlert(inputs: locationName):
+        1. IF severe weather conditions:
+            1. Set severeWeather to true;
+    
+    6. Function handleSaveLocation(inputs: locationName):
+        1. Push locationName to savedLocations;
 
 Components:
     1. DayCard(props: day, icon, temperature)

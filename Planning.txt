@@ -8,6 +8,7 @@ Requirements:
         1. Temperature.
         2. Humidity.
         3. Wind speed.
+        4. Chance of rain.
     2. Responsive to different screens.
     3. Should also include search bar to find different locations.
 
@@ -23,10 +24,11 @@ Requirements:
     5. Allow weather notifications.
     6. Allow users to save locations and switch to those locations.
     7. Change app theme.
+    8. Change temperature unit.
 
 
 Solution: 
-    1. Get location name as input from search bar.
+    1. Get location name as input from search bar input.
     2. Use location name to fetch weather api data.
     3. Store data in location object;
     4. Use location object to render weather information in the app.
@@ -37,6 +39,8 @@ Solution:
     2. handleSearchLocation - function to get location from search.
     3. changeTheme - function to change app theme.
     4. changeDisplayUnit - function to change temperature units.
+    5. weatherAlert - function to check and update user if theres severe weather.
+    6. handleSaveLocation - function to save location.
 
 
     Components:

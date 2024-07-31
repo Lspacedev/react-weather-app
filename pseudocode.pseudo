@@ -1,0 +1,38 @@
+Global variables, object:
+    1. Create location name String, locationName;
+    2. Create location Object, locationObj;
+Get location information from weather api:
+    useEffect(()=>{
+        fetch(link);
+        then(res => {
+            setLocationObj(res)
+        },[locationName])
+    })
+
+Functions:
+    1. changeLocation(inputs: name)
+        1. Set locationName to name;
+
+    2. handleSearchLocation(inputs: name)
+        1. changeLocation(name);
+
+Components:
+    1. DayCard(props: day, icon, temperature)
+        1. Create div to hold all prop information
+
+    2. HighlightCard(props: title, info_one, info_two)
+        1. Create div to hold all prop information
+
+    3. LocationInfoCard(inputs: locationObj)
+        1. Create divs to hold location information;
+
+    4. SearchLocation(inputs: handleSearchLocation, name)
+        1. Create search bar and button to allow search;
+        2. use handleSearchLocation to change locationName.
+
+    5. HeadingCards(props: title)
+        1. Create divs to hold tile.
+    
+    6. Dashboard(inputs: HeadingCards)
+        1. Render HeadingCards;
+

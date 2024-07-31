@@ -32,23 +32,23 @@ Solution:
     2. Use location name to fetch weather api data.
     3. Store data in location object;
     4. Use location object to render weather information in the app.
-    5. Use search bar to allow location name change.
+    5. Use search bar to allow location name change from the user.
 
     Functions:
     1. changeLocation - function to change location name in state.
-    2. handleSearchLocation - function to get location from search.
-    3. changeTheme - function to change app theme.
-    4. changeDisplayUnit - function to change temperature units.
+    2. handleSearchLocation - function to get location from search bar input.
+    3. changeTheme - function to change app theme i.e light, dark.
+    4. changeDisplayUnit - function to change temperature units i.e. Celsius, Fahrenheit.
     5. weatherAlert - function to check and update user if theres severe weather.
-    6. handleSaveLocation - function to save location.
+    6. handleSaveLocation - function to save location to array.
 
 
     Components:
-    1. DayCard - stores weather information for the day.
-    2. HighlightCard - stores weather highlights.
+    1. DayCard - stores weather information for the day of the week.
+    2. HighlightCard - stores weather highlights, i.e Humidity.
     3. LocationInfoCard - stores current location's weather information.
-    4. SearchLocation - stores search bar. 
-    5. HeadingCards - headings for Sidebar.
+    4. SearchLocation - stores search bar input element. 
+    5. HeadingCards - headings for Sidebar e.g Dashboard.
     6. Sidebar - app's Sidebar.
     7. Main - main component for the app that renders all the other components.
     8. SavedLocationCard - stores saved location.

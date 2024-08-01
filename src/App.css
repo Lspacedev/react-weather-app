@@ -28,6 +28,7 @@
   color: #61dafb;
 }
 * {
+  font-family: "Poppins", sans-serif;
 }
 
 .App {
@@ -146,6 +147,17 @@ button {
   display: grid;
   grid-template-columns: auto auto;
   gap: 5px;
+}
+
+.city-time {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.temp-text {
+  display: flex;
+  justify-content: space-around;
 }
 
 @media screen and (max-width: 768px) {

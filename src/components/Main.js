@@ -20,7 +20,7 @@ function Main({
       </div>
       <div className="weather-information">
         <Highlights locationObj={locationObj} />
-        <SavedLocationCard />
+        <SavedLocationCard locationObj={locationObj} />
       </div>
     </div>
   );

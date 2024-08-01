@@ -6,6 +6,7 @@ import Sidebar from "./components/Sidebar";
 function App() {
   const [locationName, setLocationName] = useState("");
   const [locationObj, setLocationObj] = useState({});
+  const [savedLocations, setSavedLocations] = useState([]);
   const [err, setErr] = useState("");
 
   const [theme, setTheme] = useState("light");
@@ -68,15 +69,40 @@ function App() {
     let toggle = theme === "light" ? "dark" : "light";
     setTheme(toggle);
   }
-  console.log(locationObj);
+  function handleSaveLocation() {
+    const findLocation = savedLocations.filter(
+      (location) => location === locationName
+    );
+    if (locationName === "") {
+      return;
+    }
+    console.log(findLocation);
+    if (findLocation.length === 0) {
+      let arr = [...savedLocations];
+      arr.push(locationName);
+
+      setSavedLocations(arr);
+    }
+  }
+  function handleDeleteSavedLocation(name) {
+    const filteredSavedLocation = savedLocations.filter(
+      (location) => location !== name
+    );
+    setSavedLocations(filteredSavedLocation);
+  }
   return (
     <div className={`App ${theme}`}>
-      <Sidebar />
+      <Sidebar
+        savedLocations={savedLocations}
+        changeLocation={changeLocation}
+        handleDeleteSavedLocation={handleDeleteSavedLocation}
+      />
       <Main
         locationObj={locationObj}
         changeLocation={changeLocation}
         changeTheme={changeTheme}
         theme={theme}
+        handleSaveLocation={handleSaveLocation}
       />
     </div>
   );

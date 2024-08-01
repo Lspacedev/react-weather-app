@@ -28,7 +28,6 @@
   color: #61dafb;
 }
 * {
-  border: 1px solid black;
 }
 
 .App {
@@ -54,6 +53,10 @@
   display: none;
 
   padding: 50px 0px;
+}
+
+.location-delete {
+  padding: 0px 15px;
 }
 
 .saved:hover .sub-menu {
@@ -123,7 +126,26 @@ button {
 }
 
 .light {
-  background-color: azure;
+  background-color: white;
+}
+
+.daily-hourly {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Daily-cards {
+  display: flex;
+  justify-content: space-evenly;
+}
+.Hourly-cards {
+  display: flex;
+  justify-content: space-evenly;
+}
+.todays-highlights {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 5px;
 }
 
 @media screen and (max-width: 768px) {

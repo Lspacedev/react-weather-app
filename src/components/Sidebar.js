@@ -1,4 +1,8 @@
-function Sidebar() {
+function Sidebar({
+  savedLocations,
+  changeLocation,
+  handleDeleteSavedLocation,
+}) {
   return (
     <div className="Sidebar">
       <h1>Weather App</h1>
@@ -9,7 +13,19 @@ function Sidebar() {
             <span>+</span>Saved Locations
           </div>
           <div className="sub-menu">
-            <h4>Pretoria</h4>
+            <ul>
+              {savedLocations.map((location, i) => (
+                <li key={i} onClick={() => changeLocation(location)}>
+                  {location}
+                  <span
+                    className="location-delete"
+                    onClick={() => handleDeleteSavedLocation(location)}
+                  >
+                    x
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

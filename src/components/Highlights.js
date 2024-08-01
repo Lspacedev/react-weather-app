@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DailyHighlightCards from "./DailyHighlightCards";
 import HourlyHighlightCard from "./HourlyHighlightCard";
+import TodayHighlightCard from "./TodayHighlightCard";
 
 function Highlights({ locationObj }) {
   const [content, setContent] = useState("daily");
@@ -9,6 +10,7 @@ function Highlights({ locationObj }) {
   }
   const day = locationObj.day;
   const hour = locationObj.hour;
+  console.log(locationObj);
   return (
     <div className="Highlights">
       <h1>Highlights</h1>
@@ -35,8 +37,8 @@ function Highlights({ locationObj }) {
           ) : (
             "No daily data to show."
           )
-        ) : day ? (
-          <div>
+        ) : hour ? (
+          <div className="Hourly-cards">
             <HourlyHighlightCard hour={hour.twelve_am} time={"12:00 am"} />
             <HourlyHighlightCard hour={hour.six_am} time={"6:00 am"} />
             <HourlyHighlightCard hour={hour.twelve_pm} time={"12:00 pm"} />
@@ -44,6 +46,28 @@ function Highlights({ locationObj }) {
           </div>
         ) : (
           "No hourly data to show."
+        )}
+      </div>
+      <div>
+        <h3>Today's Highlights</h3>
+        {JSON.stringify(locationObj) !== "{}" ? (
+          <div className="todays-highlights">
+            <TodayHighlightCard
+              name={"Wind Speed"}
+              value={locationObj.wind_speed}
+            />
+            <TodayHighlightCard
+              name={"Visibility"}
+              value={locationObj.visibility}
+            />
+            <TodayHighlightCard name={"UV"} value={locationObj.uv} />
+            <TodayHighlightCard
+              name={"Humidity"}
+              value={locationObj.humidity}
+            />
+          </div>
+        ) : (
+          <div>No highlights to show.</div>
         )}
       </div>
     </div>

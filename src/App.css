@@ -28,11 +28,59 @@
   color: #61dafb;
 }
 * {
+  border: 1px solid black;
 }
+
+.App {
+  height: 100vh;
+  display: flex;
+}
+.Sidebar {
+  flex: 2;
+}
+.Main {
+  flex: 8;
+  height: inherit;
+}
+
+.main-header {
+  display: flex;
+}
+
+.saved-btn:hover {
+  background-color: #282c34;
+}
+.sub-menu {
+  display: none;
+
+  padding: 50px 0px;
+}
+
+.saved:hover .sub-menu {
+  display: block;
+}
+
+.weather-information {
+  height: calc(100% - 42px);
+  display: flex;
+}
+
+.Highlights {
+  flex: 5;
+}
+.saved-location-card {
+  flex: 2;
+}
+.test {
+  margin: 0px;
+  padding: 0px;
+}
+
 button {
   cursor: pointer;
 }
 .search-div {
+  flex: 5;
   max-width: 500px;
   height: 40px;
   margin: auto;
@@ -40,7 +88,6 @@ button {
   display: flex;
   border-radius: 40px;
   border: 1px solid gray;
-  background-color: white;
 }
 
 .search-div input[type="search"] {
@@ -77,4 +124,13 @@ button {
 
 .light {
   background-color: azure;
+}
+
+@media screen and (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+  .weather-information {
+    flex-direction: column-reverse;
+  }
 }

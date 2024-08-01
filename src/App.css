@@ -1,34 +1,10 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 * {
   font-family: "Poppins", sans-serif;
+}
+
+body {
+  text-align: center;
 }
 
 .App {
@@ -38,6 +14,10 @@
 .Sidebar {
   flex: 2;
 }
+
+.Sidebar h3 {
+  color: #4f6694;
+}
 .Main {
   flex: 8;
   height: inherit;
@@ -45,6 +25,7 @@
 
 .main-header {
   display: flex;
+  justify-content: space-between;
 }
 
 .saved-btn:hover {
@@ -71,9 +52,17 @@
 
 .Highlights {
   flex: 5;
+  background-color: whitesmoke;
+  padding: 15px;
 }
 .saved-location-card {
   flex: 2;
+  padding: 15px 25px;
+  background: linear-gradient(#9CADCE, #2757b6);
+}
+.city h2, p {
+  padding: 0px;
+  margin: 0px;
 }
 .test {
   margin: 0px;
@@ -87,7 +76,6 @@ button {
   flex: 5;
   max-width: 500px;
   height: 40px;
-  margin: auto;
   padding: 0px;
   display: flex;
   border-radius: 40px;
@@ -122,13 +110,11 @@ button {
   background-color: rgb(216, 216, 216);
 }
 
-.dark {
-  background-color: lightgray;
-}
 
 .light {
   background-color: white;
 }
+
 
 .daily-hourly {
   display: flex;
@@ -139,16 +125,32 @@ button {
   display: flex;
   justify-content: space-evenly;
 }
+.Daily-cards div {
+  background-color: white;
+  width: 20%;
+  border-radius: 10px;
+}
 .Hourly-cards {
   display: flex;
   justify-content: space-evenly;
 }
+
+.Hourly-cards div {
+  background-color: white;
+  padding: 0px 25px;
+  border-radius: 10px;
+
+}
 .todays-highlights {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 5px;
+  gap: 15px;
 }
+.todays-highlights div {
+  background-color: white;
+  border-radius: 10px;
 
+}
 .city-time {
   display: flex;
   justify-content: space-around;
@@ -159,12 +161,32 @@ button {
   display: flex;
   justify-content: space-around;
 }
+.dark {
+  background-color: black;
+}
+.saved-location-card.dark {
+  background: linear-gradient(#000614, black);
+  color: white;
+  border: 1px solid white;
 
+}
 @media screen and (max-width: 768px) {
   .App {
     flex-direction: column;
   }
   .weather-information {
-    flex-direction: column-reverse;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-header {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search-div input{
+    width: 100%;
   }
 }

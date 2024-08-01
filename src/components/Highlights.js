@@ -3,7 +3,7 @@ import DailyHighlightCards from "./DailyHighlightCards";
 import HourlyHighlightCard from "./HourlyHighlightCard";
 import TodayHighlightCard from "./TodayHighlightCard";
 
-function Highlights({ locationObj }) {
+function Highlights({ locationObj, symbol }) {
   const [content, setContent] = useState("daily");
   function handleContentChange(name) {
     setContent(name);
@@ -13,14 +13,13 @@ function Highlights({ locationObj }) {
   console.log(locationObj);
   return (
     <div className="Highlights">
-      <h1>Highlights</h1>
       <div className="daily-hourly">
         <div
           onClick={() => {
             handleContentChange("daily");
           }}
         >
-          daily
+          Daily
         </div>
         <div
           onClick={() => {
@@ -33,7 +32,7 @@ function Highlights({ locationObj }) {
       <div className="highlights-content">
         {content === "daily" ? (
           day ? (
-            <DailyHighlightCards day={day} />
+            <DailyHighlightCards day={day} symbol={symbol} />
           ) : (
             "No daily data to show."
           )

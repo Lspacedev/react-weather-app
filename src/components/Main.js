@@ -5,7 +5,9 @@ function Main({
   locationObj,
   changeLocation,
   changeTheme,
+  changeSymbol,
   theme,
+  symbol,
   handleSaveLocation,
 }) {
   return (
@@ -14,13 +16,18 @@ function Main({
         <SearchLocation changeLocation={changeLocation} />
         <div className="test">
           <button onClick={changeTheme}>{theme}</button>
+          <button onClick={changeSymbol}>{symbol}</button>
 
           <button onClick={handleSaveLocation}>Save Location</button>
         </div>
       </div>
       <div className="weather-information">
-        <Highlights locationObj={locationObj} />
-        <SavedLocationCard locationObj={locationObj} />
+        <Highlights locationObj={locationObj} symbol={symbol} />
+        <SavedLocationCard
+          theme={theme}
+          locationObj={locationObj}
+          symbol={symbol}
+        />
       </div>
     </div>
   );

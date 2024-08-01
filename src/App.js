@@ -7,14 +7,28 @@ function App() {
   const [locationName, setLocationName] = useState("");
   const [locationObj, setLocationObj] = useState({});
   const [savedLocations, setSavedLocations] = useState([]);
+  const [symbol, setSymbol] = useState("Cel");
   const [err, setErr] = useState("");
 
   const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    function success(position) {
+      let lat = position.coords.latitude;
+      let long = position.coords.longitude;
+      console.log(lat, long);
+      let name = lat.toString() + "," + long.toString();
+      setLocationName(name);
+    }
+
+    navigator.geolocation.getCurrentPosition(success);
+  }, []);
+
   useEffect(() => {
     if (locationName !== "") {
       fetch(
         `https://api.weatherapi.com/v1/forecast.json?key=1d668ceaba92432fb3890228240802&q=${locationName}`,
-        { mode: "cors" }
+        { mode: "cors" },
       )
         .then((res) => res.json())
         .then((res) => {
@@ -69,9 +83,13 @@ function App() {
     let toggle = theme === "light" ? "dark" : "light";
     setTheme(toggle);
   }
+  function changeSymbol() {
+    let toggle = symbol === "Cel" ? "Far" : "Cel";
+    setSymbol(toggle);
+  }
   function handleSaveLocation() {
     const findLocation = savedLocations.filter(
-      (location) => location === locationName
+      (location) => location === locationName,
     );
     if (locationName === "") {
       return;
@@ -86,13 +104,14 @@ function App() {
   }
   function handleDeleteSavedLocation(name) {
     const filteredSavedLocation = savedLocations.filter(
-      (location) => location !== name
+      (location) => location !== name,
     );
     setSavedLocations(filteredSavedLocation);
   }
   return (
     <div className={`App ${theme}`}>
       <Sidebar
+        theme={theme}
         savedLocations={savedLocations}
         changeLocation={changeLocation}
         handleDeleteSavedLocation={handleDeleteSavedLocation}
@@ -101,7 +120,9 @@ function App() {
         locationObj={locationObj}
         changeLocation={changeLocation}
         changeTheme={changeTheme}
+        changeSymbol={changeSymbol}
         theme={theme}
+        symbol={symbol}
         handleSaveLocation={handleSaveLocation}
       />
     </div>

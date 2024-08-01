@@ -1,9 +1,9 @@
-function DailyHighlightCards({ day }) {
+function DailyHighlightCards({ day, symbol }) {
   return (
     <div className="Daily-cards">
       <div>
         <h5>avg temp</h5>
-        <p>{day.avgtemp_c}</p>
+        <p>{symbol === "Cel" ? day.avgtemp_c + "C" : day.avgtemp_f + "F"}</p>
       </div>
       <div>
         <h5>avg humidity</h5>

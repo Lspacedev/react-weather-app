@@ -1,11 +1,12 @@
 function Sidebar({
+  theme,
   savedLocations,
   changeLocation,
   handleDeleteSavedLocation,
 }) {
   return (
-    <div className="Sidebar">
-      <h1>Weather App</h1>
+    <div className={`Sidebar ${theme}`}>
+      <h3>Weather App</h3>
       <div className="dashboard-saved">
         <div className="dashboard">Dashboard</div>
         <div className="saved">

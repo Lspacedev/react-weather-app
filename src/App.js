@@ -29,7 +29,7 @@ function App() {
     if (locationName !== "") {
       fetch(
         `https://api.weatherapi.com/v1/forecast.json?key=1d668ceaba92432fb3890228240802&q=${locationName}&alerts=yes`,
-        { mode: "cors" },
+        { mode: "cors" }
       )
         .then((res) => res.json())
         .then((res) => {
@@ -92,7 +92,7 @@ function App() {
   }
   function handleSaveLocation() {
     const findLocation = savedLocations.filter(
-      (location) => location === locationName,
+      (location) => location === locationName
     );
     if (locationName === "") {
       return;
@@ -107,7 +107,7 @@ function App() {
   }
   function handleDeleteSavedLocation(name) {
     const filteredSavedLocation = savedLocations.filter(
-      (location) => location !== name,
+      (location) => location !== name
     );
     setSavedLocations(filteredSavedLocation);
   }

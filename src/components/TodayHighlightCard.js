@@ -1,8 +1,14 @@
-function TodayHighlightCard({ name, value }) {
+function TodayHighlightCard({ name, value, symbol, children }) {
   return (
-    <div>
-      <h5>{name}</h5>
-      <p>{value}</p>
+    <div className="TodayHighlightCard">
+      <div className="today-card-icon">{children}</div>
+      <div className="today-card-info">
+        <h5>{name}</h5>
+        <p>
+          {value}
+          {symbol}
+        </p>
+      </div>
     </div>
   );
 }

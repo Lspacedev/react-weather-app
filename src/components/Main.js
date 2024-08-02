@@ -1,6 +1,8 @@
 import SearchLocation from "./SearchLocation";
 import SavedLocationCard from "./SavedLocationCard";
 import Highlights from "./Highlights";
+import { IoNotificationsOutline } from "react-icons/io5";
+
 function Main({
   alerts,
   locationObj,
@@ -21,16 +23,21 @@ function Main({
     <div className="Main">
       <div className="main-header">
         <SearchLocation changeLocation={changeLocation} />
-        <div className="test">
-          <button onClick={changeTheme}>
-            {theme === "light" ? "dark" : "light"}
+        <div className="theme-symbol-save-alert">
+          <button className="theme-btn" onClick={changeTheme}>
+            {theme === "light" ? "Dark" : "Light"}
           </button>
-          <button onClick={changeSymbol}>
-            {symbol === "Cel" ? "Far" : "Cel"}
+          <button className="symbol-btn" onClick={changeSymbol}>
+            {symbol === "Cel" ? " °F" : " °C"}
           </button>
 
-          <button onClick={handleSaveLocation}>Save Location</button>
-          <button onClick={open}>Alerts{alerts.length}</button>
+          <button className="save-btn" onClick={handleSaveLocation}>
+            Save Location
+          </button>
+          <div className="alert-btn" onClick={open}>
+            <IoNotificationsOutline id="alert-icon" />
+            {alerts.length}
+          </div>
         </div>
       </div>
       <div className="weather-information">

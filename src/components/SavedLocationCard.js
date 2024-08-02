@@ -18,8 +18,8 @@ function SavedLocationCard({ theme, locationObj, symbol }) {
             <div className="temp-text">
               <div className="temp">
                 {symbol === "Cel"
-                  ? locationObj.temp_c + "C"
-                  : locationObj.temp_f + "F"}
+                  ? locationObj.temp_c + " °C"
+                  : locationObj.temp_f + " °F"}
               </div>
               <div className="condition-text">{locationObj.condition.text}</div>
             </div>

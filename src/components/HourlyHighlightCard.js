@@ -1,4 +1,4 @@
-function HourlyHighlightCard({ hour, time }) {
+function HourlyHighlightCard({ symbol, hour, time }) {
   const conditionText = hour.condition.text;
   const conditionIcon = hour.condition.icon;
   const temp_c = hour.temp_c;
@@ -9,7 +9,9 @@ function HourlyHighlightCard({ hour, time }) {
       <div>
         <img src={`${conditionIcon}`} />
       </div>
-      <div>{temp_c}</div>
+      <div className="hourly-temp">
+        {symbol === "Cel" ? temp_c + " °C" : temp_f + " °F"}
+      </div>
     </div>
   );
 }

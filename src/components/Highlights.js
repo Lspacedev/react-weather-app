@@ -9,6 +9,7 @@ import { TbEyeCog } from "react-icons/tb";
 
 function Highlights({ locationObj, symbol }) {
   const [content, setContent] = useState("daily");
+
   function handleContentChange(name) {
     //change the current class from daily to hourly and vice versa
     if (name === "daily") {
@@ -22,12 +23,11 @@ function Highlights({ locationObj, symbol }) {
   }
   const day = locationObj.day;
   const hour = locationObj.hour;
-  console.log(locationObj);
   return (
     <div className="Highlights">
       <div className="daily-hourly">
         <div
-          className="daily"
+          className="daily current"
           onClick={() => {
             handleContentChange("daily");
           }}
@@ -57,9 +57,21 @@ function Highlights({ locationObj, symbol }) {
               hour={hour.twelve_am}
               time={"12:00 am"}
             />
-            <HourlyHighlightCard hour={hour.six_am} time={"6:00 am"} />
-            <HourlyHighlightCard hour={hour.twelve_pm} time={"12:00 pm"} />
-            <HourlyHighlightCard hour={hour.six_pm} time={"6:00 pm"} />
+            <HourlyHighlightCard
+              symbol={symbol}
+              hour={hour.six_am}
+              time={"6:00 am"}
+            />
+            <HourlyHighlightCard
+              symbol={symbol}
+              hour={hour.twelve_pm}
+              time={"12:00 pm"}
+            />
+            <HourlyHighlightCard
+              symbol={symbol}
+              hour={hour.six_pm}
+              time={"6:00 pm"}
+            />
           </div>
         ) : (
           "No hourly data to show."

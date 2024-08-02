@@ -4,7 +4,7 @@ function HourlyHighlightCard({ symbol, hour, time }) {
   const temp_c = hour.temp_c;
   const temp_f = hour.temp_f;
   return (
-    <div>
+    <div className="HourlyHighlightCard">
       <h4>{time}</h4>
       <div>
         <img src={`${conditionIcon}`} />

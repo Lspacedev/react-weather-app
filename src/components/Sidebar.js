@@ -1,3 +1,7 @@
+import { RiDashboardLine } from "react-icons/ri";
+import { FaHistory } from "react-icons/fa";
+import { TiDelete } from "react-icons/ti";
+
 function Sidebar({
   theme,
   savedLocations,
@@ -8,25 +12,33 @@ function Sidebar({
     <div className={`Sidebar ${theme}`}>
       <h3>Weather App</h3>
       <div className="dashboard-saved">
-        <div className="dashboard">Dashboard</div>
+        <div className="dashboard">
+          <RiDashboardLine />
+          Dashboard
+        </div>
         <div className="saved">
           <div className="saved-btn">
-            <span>+</span>Saved Locations
+            <FaHistory />
+            Saved Locations
           </div>
           <div className="sub-menu">
-            <ul>
-              {savedLocations.map((location, i) => (
-                <li key={i} onClick={() => changeLocation(location)}>
-                  {location}
-                  <span
-                    className="location-delete"
-                    onClick={() => handleDeleteSavedLocation(location)}
-                  >
-                    x
-                  </span>
-                </li>
-              ))}
-            </ul>
+            {savedLocations.length > 0 ? (
+              <ul>
+                {savedLocations.map((location, i) => (
+                  <li key={i} onClick={() => changeLocation(location)}>
+                    <p>{location}</p>
+                    <span
+                      className="location-delete"
+                      onClick={() => handleDeleteSavedLocation(location)}
+                    >
+                      <TiDelete />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>No saved locations.</p>
+            )}
           </div>
         </div>
       </div>

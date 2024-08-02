@@ -37,6 +37,7 @@ function App() {
           let current = res.current;
           let forecast = res.forecast.forecastday[0];
           let alertsArr = res.alerts.alert;
+          console.log(res);
 
           const obj = {
             country: location.country,
@@ -97,7 +98,6 @@ function App() {
     if (locationName === "") {
       return;
     }
-    console.log(findLocation);
     if (findLocation.length === 0) {
       let arr = [...savedLocations];
       arr.push(locationName);

@@ -10,13 +10,25 @@ body {
   height: 100vh;
   display: flex;
 }
+
+.light {
+  background-color: white;
+}
 .Sidebar {
   flex: 2;
 }
 
 .Sidebar h3 {
   color: #4f6694;
+  margin-bottom: 82px;
 }
+
+.dashboard-saved {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
 .Main {
   flex: 8;
   height: inherit;
@@ -27,18 +39,49 @@ body {
   justify-content: space-between;
   padding: 20px 25px;
 }
-
+.saved-btn,
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: #2757b6;
+  border-radius: 40px;
+}
 .saved-btn:hover {
-  background-color: #282c34;
+  cursor: pointer;
+  background-color: whitesmoke;
+  color: #2757b6;
+  border-radius: 40px;
 }
 .sub-menu {
   display: none;
-
-  padding: 50px 0px;
+  padding: 15px 0px;
 }
 
+.sub-menu li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.sub-menu p {
+  color: #000614;
+}
+
+.sub-menu li p:hover {
+  color: #9cadce;
+  cursor: pointer;
+}
 .location-delete {
   padding: 0px 15px;
+}
+.location-delete:hover {
+  color: red;
 }
 
 .saved:hover .sub-menu {
@@ -51,7 +94,7 @@ body {
 }
 
 .Highlights {
-  flex: 5;
+  flex: 75%;
   background-color: whitesmoke;
   padding: 15px;
   display: flex;
@@ -59,15 +102,138 @@ body {
 }
 
 .saved-location-card {
-  flex: 2;
-  padding: 15px 25px;
-  background: linear-gradient(#9cadce, #2757b6);
+  flex: 25%;
+  padding: 50px 10px;
+  background: linear-gradient(#9cadce, #102142);
+}
+.temp-condition-text {
+  margin: 0px 25px;
+}
+.temp-condition-text img {
+  width: 100px;
+}
+
+.temp {
+  font-size: 2.6rem;
+  font-weight: 500;
+  color: rgb(27, 27, 27);
+}
+
+.temp-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.condition-text {
+  font-size: 1.2rem;
+}
+.city-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 25px;
 }
 .city h2,
 p {
   padding: 0px;
   margin: 0px;
+  text-align: start;
 }
+
+.chance-of-rain {
+  margin: 25px 25px;
+}
+
+.chance-of-rain h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 5px 0px;
+  text-align: start;
+}
+.chance-of-rain div {
+  font-size: 2.2rem;
+  margin: 25px 0px;
+}
+.chance-of-rain-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chance-of-rain-icon {
+  font-size: 3rem;
+  color: #bdc0c5;
+}
+.sunrise-sunset {
+  margin: 25px;
+}
+
+.sunrise-sunset h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 5px 0px;
+  text-align: start;
+}
+
+.sunrise {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px 0px;
+}
+
+.sun-icon-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sunrise h5 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 5px 0px;
+}
+#sunrise-icon {
+  font-size: 3rem;
+  color: #bdc0c5;
+}
+.sunrise .sunrise-info {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 5px 0px;
+}
+
+.sunset {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px 0px;
+}
+
+.set-icon-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sunset h5 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 5px 0px;
+}
+#sunset-icon {
+  font-size: 3rem;
+  color: #bdc0c5;
+}
+.sunset .sunset-info {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 5px 0px;
+}
+
 .test {
   margin: 0px;
   padding: 0px;
@@ -114,10 +280,6 @@ button {
   background-color: rgb(216, 216, 216);
 }
 
-.light {
-  background-color: white;
-}
-
 .daily-hourly {
   flex: 1;
   display: flex;
@@ -145,15 +307,20 @@ button {
 .today-div {
   flex: 5;
 }
+.today-div h3 {
+  text-align: start;
+  color: #000614;
+}
 
 .Daily-cards {
   display: flex;
   justify-content: space-evenly;
 }
 
-.Daily-cards div {
+.Daily-cards .card {
   background-color: white;
-  width: 20%;
+  width: 30%;
+  padding: 10px 0px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -176,11 +343,12 @@ button {
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
-.Hourly-cards div {
+.Hourly-cards .HourlyHighlightCard {
   background-color: white;
-  padding: 0px 25px;
+  padding: 0px 60px;
   border-radius: 10px;
   box-shadow: 1px 1px 15px rgb(231, 231, 231);
 }
@@ -198,36 +366,28 @@ button {
 .todays-highlights .TodayHighlightCard {
   background-color: white;
   border-radius: 10px;
+  padding: 25px 0px;
 }
 .TodayHighlightCard {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 50px;
   align-items: center;
   box-shadow: 1px 1px 15px rgb(231, 231, 231);
 }
 
 .today-card-icon {
-  font-size: 3rem;
-  color: #081124;
+  font-size: 2.5rem;
 }
 
 .today-card-info h5 {
   color: rgb(54, 54, 54);
 }
 .today-card-info p {
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: #081124;
 }
-.city-time {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
 
-.temp-text {
-  display: flex;
-  justify-content: space-around;
-}
 .dark {
   background-color: black;
 }
@@ -253,6 +413,10 @@ button {
 
 .alerts-menu-close {
   color: white;
+  border: 1px solid black;
+  text-align: end;
+  padding-right: 15px;
+  font-weight: bold;
 }
 
 .alerts-menu.enter {
@@ -313,9 +477,13 @@ button {
   padding: 5px;
 }
 
+#alert-icon:hover {
+  color: #9cadce;
+}
+
 .daily-card-icon {
   font-size: 2rem;
-  color: #486cb4;
+  color: #28498a;
 }
 @media screen and (max-width: 768px) {
   .App {
@@ -336,21 +504,31 @@ button {
   .alerts-menu {
     width: 50%;
   }
+  .todays-highlights {
+    grid-template-columns: auto;
+  }
+  .Daily-cards {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .Daily-cards div {
+    width: 100%;
+  }
+  .Hourly-cards {
+    gap: 15px;
+  }
+
+  .HourlyHighlightCard {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 375px) {
-  .Hourly-cards {
-    display: grid;
-    grid-template-columns: auto auto;
-  }
 }
 
 @media screen and (max-width: 320px) {
   .search-div input {
     width: 100%;
-  }
-  .Hourly-cards {
-    display: grid;
-    grid-template-columns: auto;
   }
 }

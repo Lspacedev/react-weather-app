@@ -8,6 +8,7 @@ function App() {
   const [locationObj, setLocationObj] = useState({});
   const [savedLocations, setSavedLocations] = useState([]);
   const [symbol, setSymbol] = useState("Cel");
+  const [alerts, setAlerts] = useState([]);
   const [err, setErr] = useState("");
 
   const [theme, setTheme] = useState("light");
@@ -27,7 +28,7 @@ function App() {
   useEffect(() => {
     if (locationName !== "") {
       fetch(
-        `https://api.weatherapi.com/v1/forecast.json?key=1d668ceaba92432fb3890228240802&q=${locationName}`,
+        `https://api.weatherapi.com/v1/forecast.json?key=1d668ceaba92432fb3890228240802&q=${locationName}&alerts=yes`,
         { mode: "cors" },
       )
         .then((res) => res.json())
@@ -35,6 +36,7 @@ function App() {
           let location = res.location;
           let current = res.current;
           let forecast = res.forecast.forecastday[0];
+          let alertsArr = res.alerts.alert;
 
           const obj = {
             country: location.country,
@@ -70,6 +72,7 @@ function App() {
           };
 
           setLocationObj(obj);
+          setAlerts(alertsArr);
         })
         .catch((err) => {
           setErr(err);
@@ -117,6 +120,7 @@ function App() {
         handleDeleteSavedLocation={handleDeleteSavedLocation}
       />
       <Main
+        alerts={alerts}
         locationObj={locationObj}
         changeLocation={changeLocation}
         changeTheme={changeTheme}

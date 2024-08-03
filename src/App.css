@@ -4,6 +4,7 @@
 
 body {
   text-align: center;
+  background-color: lightcoral;
 }
 
 .App {
@@ -91,30 +92,32 @@ body {
 .weather-information {
   height: calc(100% - 82px);
   display: flex;
+  padding: 0px;
 }
 
 .Highlights {
   flex: 75%;
   background-color: whitesmoke;
-  padding: 15px;
+  padding: 0px;
   display: flex;
   flex-direction: column;
 }
 
 .saved-location-card {
   flex: 25%;
-  padding: 50px 10px;
+  padding: 5px 10px;
   background: linear-gradient(#9cadce, #102142);
 }
 .temp-condition-text {
-  margin: 0px 25px;
+  margin: 0px 5px;
 }
 .temp-condition-text img {
-  width: 100px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .temp {
-  font-size: 2.6rem;
+  font-size: 1.7rem;
   font-weight: 500;
   color: rgb(27, 27, 27);
 }
@@ -123,7 +126,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
+  margin: 0px;
 }
 .condition-text {
   font-size: 1.2rem;
@@ -132,47 +135,51 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0px 25px;
+  margin: 0px 5px;
+  padding: 0px;
 }
 .city h2,
 p {
   padding: 0px;
   margin: 0px;
-  text-align: start;
 }
-
+.city p {
+  font-size: 0.7rem;
+}
 .chance-of-rain {
-  margin: 25px 25px;
+  margin: 0px 5px;
+  padding: 0px;
 }
 
 .chance-of-rain h4 {
   font-size: 1.2rem;
   font-weight: 600;
-  margin: 5px 0px;
+  margin: 0px 0px;
   text-align: start;
 }
 .chance-of-rain div {
-  font-size: 2.2rem;
-  margin: 25px 0px;
+  font-size: 1.5rem;
+  margin: 0px 0px;
 }
 .chance-of-rain-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0px;
 }
 
 #chance-of-rain-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #bdc0c5;
 }
 .sunrise-sunset {
-  margin: 25px;
+  margin: 0px 5px;
 }
 
 .sunrise-sunset h4 {
   font-size: 1.2rem;
   font-weight: 600;
-  margin: 5px 0px;
+  margin: 0px 0px;
   text-align: start;
 }
 
@@ -181,7 +188,7 @@ p {
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
-  padding: 5px 0px;
+  padding: 0px 0px;
 }
 
 .sun-icon-info {
@@ -193,10 +200,10 @@ p {
 .sunrise h5 {
   font-size: 1rem;
   font-weight: 500;
-  margin: 5px 0px;
+  margin: 0px 0px;
 }
 #sunrise-icon {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #bdc0c5;
 }
 .sunrise .sunrise-info {
@@ -225,13 +232,13 @@ p {
   margin: 5px 0px;
 }
 #sunset-icon {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #bdc0c5;
 }
 .sunset .sunset-info {
   font-size: 1.2rem;
   font-weight: 600;
-  margin: 5px 0px;
+  margin: 0px 0px;
 }
 
 .test {
@@ -250,6 +257,7 @@ button {
   display: flex;
   border-radius: 40px;
   border: 1px solid gray;
+  background-color: white;
 }
 
 .search-div input[type="search"] {
@@ -282,18 +290,18 @@ button {
 
 .daily-hourly {
   flex: 1;
-  display: flex;
-  justify-content: start;
-  gap: 25px;
-  align-items: center;
+  text-align: start;
+  padding-left: 25px;
+  padding-bottom: 0px;
+
 }
 
 .daily-hourly div {
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
+  display: inline;
   font-size: 1.3rem;
-  padding-bottom: 2px;
+  margin-right: 15px;
+
 }
 
 .current {
@@ -301,7 +309,7 @@ button {
 }
 
 .highlights-content {
-  flex: 2;
+  flex: 5;
 }
 
 .today-div {
@@ -310,6 +318,9 @@ button {
 .today-div h3 {
   text-align: start;
   color: #000614;
+  margin: 0px;
+  padding-left: 25px;
+
 }
 
 .Daily-cards {
@@ -320,7 +331,7 @@ button {
 .Daily-cards .card {
   background-color: white;
   width: 30%;
-  padding: 10px 0px;
+  padding: 0px 0px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -342,7 +353,6 @@ button {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -360,13 +370,14 @@ button {
 .todays-highlights {
   display: grid;
   grid-template-columns: auto auto;
+  padding: 0px 20px;
 
   gap: 15px;
 }
 .todays-highlights .TodayHighlightCard {
   background-color: white;
   border-radius: 10px;
-  padding: 25px 0px;
+  padding: 5px 0px;
 }
 .TodayHighlightCard {
   display: flex;
@@ -388,14 +399,6 @@ button {
   color: #081124;
 }
 
-.dark {
-  background-color: black;
-}
-.saved-location-card.dark {
-  background: linear-gradient(#000614, black);
-  color: white;
-  border: 1px solid white;
-}
 
 .alerts-menu {
   height: 100%;
@@ -485,6 +488,102 @@ button {
   font-size: 2rem;
   color: #28498a;
 }
+
+
+.dark {
+  background-color: black;
+  color: white;
+}
+
+.Highlights.dark .card{
+  background-color: #000614;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+
+}
+
+.Highlights.dark .HourlyHighlightCard{
+  background-color: #000614;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+
+.Highlights.dark .daily-card-icon, .today-card-icon{
+  color: white;
+}
+
+.Highlights.dark .card p{
+  color: white;
+}
+
+.Highlights.dark .card h5{
+  color: white;
+}
+
+.Highlights.dark h3{
+  color: white;
+}
+
+.Highlights.dark .HourlyHighlightCard h4{
+  color: white;
+}
+
+.Highlights.dark .HourlyHighlightCard .hourly-temp{
+  color: white;
+}
+
+.Highlights.dark .TodayHighlightCard{
+  background-color: #000614;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+.Highlights.dark .TodayHighlightCard .today-card-icon{
+  color: white;
+}
+
+.Highlights.dark .TodayHighlightCard h5{
+  color: white;
+}
+
+.Highlights.dark .TodayHighlightCard p{
+  color: white;
+}
+
+.saved-location-card.dark {
+  background: linear-gradient(#000614, black);
+  color: white;
+  border: 1px solid white;
+}
+
+.saved-location-card.dark .temp{
+  color: white;
+ 
+}
+
+.Sidebar.dark {
+  background-color: #000614;
+}
+
+.Sidebar.dark h3 {
+  color: white;
+}
+
+.Main.dark .main-header {
+  background-color: #000614;
+}
+
+@media screen and (max-width: 1024px) {
+  .Hourly-cards .HourlyHighlightCard {
+    padding: 0px 45px;
+  }
+}
+
+
 @media screen and (max-width: 768px) {
   .App {
     flex-direction: column;
@@ -507,16 +606,22 @@ button {
   .todays-highlights {
     grid-template-columns: auto;
   }
+  .TodayHighlightCard {
+    padding: 0px 100px;
+  }
   .Daily-cards {
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    gap: 5px;
   }
 
-  .Daily-cards div {
+  .Daily-cards .card {
     width: 100%;
+
   }
   .Hourly-cards {
     gap: 15px;
+    flex-wrap: wrap;
   }
 
   .HourlyHighlightCard {

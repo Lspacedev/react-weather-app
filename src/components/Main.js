@@ -20,7 +20,7 @@ function Main({
     document.querySelector(".alerts-menu").classList.remove("enter");
   }
   return (
-    <div className="Main">
+    <div className={`Main ${theme}`}>
       <div className="main-header">
         <SearchLocation changeLocation={changeLocation} />
         <div className="theme-symbol-save-alert">
@@ -41,7 +41,7 @@ function Main({
         </div>
       </div>
       <div className="weather-information">
-        <Highlights locationObj={locationObj} symbol={symbol} />
+        <Highlights theme={theme} locationObj={locationObj} symbol={symbol} />
         <SavedLocationCard
           theme={theme}
           locationObj={locationObj}

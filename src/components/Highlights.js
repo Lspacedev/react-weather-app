@@ -7,7 +7,7 @@ import { WiHumidity } from "react-icons/wi";
 import { RiSunFoggyFill } from "react-icons/ri";
 import { TbEyeCog } from "react-icons/tb";
 
-function Highlights({ locationObj, symbol }) {
+function Highlights({ theme, locationObj, symbol }) {
   const [content, setContent] = useState("daily");
 
   function handleContentChange(name) {
@@ -24,7 +24,7 @@ function Highlights({ locationObj, symbol }) {
   const day = locationObj.day;
   const hour = locationObj.hour;
   return (
-    <div className="Highlights">
+    <div className={`Highlights ${theme}`}>
       <div className="daily-hourly">
         <div
           className="daily current"
@@ -46,7 +46,7 @@ function Highlights({ locationObj, symbol }) {
       <div className="highlights-content">
         {content === "daily" ? (
           day ? (
-            <DailyHighlightCards day={day} symbol={symbol} />
+            <DailyHighlightCards theme={theme} day={day} symbol={symbol} />
           ) : (
             "No daily data to show."
           )

@@ -2,9 +2,9 @@ import { FaTemperatureHigh } from "react-icons/fa";
 import { WiHumidity } from "react-icons/wi";
 import { MdVisibility } from "react-icons/md";
 
-function DailyHighlightCards({ day, symbol }) {
+function DailyHighlightCards({ theme, day, symbol }) {
   return (
-    <div className="Daily-cards">
+    <div className={`Daily-cards ${theme}`}>
       <div className="card">
         <h5>Average temp</h5>
         <p>

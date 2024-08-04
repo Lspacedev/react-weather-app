@@ -2,34 +2,40 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Main from "./components/Main";
 import Sidebar from "./components/Sidebar";
+import useLocalStorage from "./components/useLocalStorage";
 
 function App() {
-  const [locationName, setLocationName] = useState("");
-  const [locationObj, setLocationObj] = useState({});
-  const [savedLocations, setSavedLocations] = useState([]);
-  const [symbol, setSymbol] = useState("Cel");
+  const [locationName, setLocationName] = useLocalStorage("locName", "");
+  const [locationObj, setLocationObj] = useLocalStorage("locObject", {});
+  const [savedLocations, setSavedLocations] = useLocalStorage("savedLoc", []);
+  const [symbol, setSymbol] = useLocalStorage("symbol", "Cel");
   const [alerts, setAlerts] = useState([]);
   const [err, setErr] = useState("");
 
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useLocalStorage("theme", "light");
 
   useEffect(() => {
     function success(position) {
       let lat = position.coords.latitude;
       let long = position.coords.longitude;
-      console.log(lat, long);
       let name = lat.toString() + "," + long.toString();
+
       setLocationName(name);
     }
-
-    navigator.geolocation.getCurrentPosition(success);
+    const error = (error) => {
+      console.log(error);
+    };
+    if (locationName === "") {
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
   }, []);
 
   useEffect(() => {
-    if (locationName !== "") {
+    const storedCity = locationObj.city;
+    if (locationName !== "" && locationName !== storedCity) {
       fetch(
         `https://api.weatherapi.com/v1/forecast.json?key=1d668ceaba92432fb3890228240802&q=${locationName}&alerts=yes`,
-        { mode: "cors" }
+        { mode: "cors" },
       )
         .then((res) => res.json())
         .then((res) => {
@@ -93,7 +99,7 @@ function App() {
   }
   function handleSaveLocation() {
     const findLocation = savedLocations.filter(
-      (location) => location === locationName
+      (location) => location === locationName,
     );
     if (locationName === "") {
       return;
@@ -101,13 +107,14 @@ function App() {
     if (findLocation.length === 0) {
       let arr = [...savedLocations];
       arr.push(locationName);
+      alert("Location has been saved!");
 
       setSavedLocations(arr);
     }
   }
   function handleDeleteSavedLocation(name) {
     const filteredSavedLocation = savedLocations.filter(
-      (location) => location !== name
+      (location) => location !== name,
     );
     setSavedLocations(filteredSavedLocation);
   }
@@ -121,7 +128,7 @@ function App() {
       />
       <Main
         alerts={alerts}
-        locationObj={locationObj}
+        locationObj={locationObj || {}}
         changeLocation={changeLocation}
         changeTheme={changeTheme}
         changeSymbol={changeSymbol}

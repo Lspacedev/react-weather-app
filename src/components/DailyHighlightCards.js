@@ -4,7 +4,7 @@ import { MdVisibility } from "react-icons/md";
 
 function DailyHighlightCards({ theme, day, symbol }) {
   return (
-    <div className={`Daily-cards ${theme}`}>
+    <div className="Daily-cards">
       <div className="card">
         <h5>Average temp</h5>
         <p>

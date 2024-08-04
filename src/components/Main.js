@@ -52,7 +52,13 @@ function Main({
             x
           </div>
           {alerts.length > 0 ? (
-            <div className="alerts"></div>
+            <div className="alerts">
+              <ul>
+                {alerts.map((alert, i) => (
+                  <li key={i}>{alert.headline}</li>
+                ))}
+              </ul>
+            </div>
           ) : (
             <div>No severe weather alerts to show.</div>
           )}

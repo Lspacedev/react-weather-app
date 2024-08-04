@@ -3,6 +3,20 @@ import { TbSunset2 } from "react-icons/tb";
 import { BsCloudRainHeavy } from "react-icons/bs";
 
 function SavedLocationCard({ theme, locationObj, symbol }) {
+  let currentTime =
+    JSON.stringify(locationObj) !== "{}" ? locationObj.time : "";
+  currentTime = currentTime && currentTime.match(/\d{1,2}:/)[0].split(":")[0];
+
+  let pastHours =
+    JSON.stringify(locationObj) !== "{}" ? locationObj.sunrise : "";
+  pastHours = pastHours && pastHours.match(/\d{1,2}:/)[0].split(":")[0];
+
+  let toHours = JSON.stringify(locationObj) !== "{}" ? locationObj.sunset : "";
+  toHours = toHours && Number(toHours.match(/\d{1,2}:/)[0].split(":")[0]) + 12;
+
+  let sunriseHours = Number(currentTime) - Number(pastHours);
+  let sunsetHours = Number(toHours) - Number(currentTime);
+
   return (
     <div className={`saved-location-card ${theme}`}>
       {JSON.stringify(locationObj) !== "{}" ? (
@@ -46,7 +60,7 @@ function SavedLocationCard({ theme, locationObj, symbol }) {
                   <div>{locationObj.sunrise}</div>
                 </div>
               </div>
-              <div>hours ago</div>
+              <div>{sunriseHours} hours ago</div>
             </div>
             <div className="sunset">
               <div className="set-icon-info">
@@ -57,7 +71,7 @@ function SavedLocationCard({ theme, locationObj, symbol }) {
                   <div>{locationObj.sunset}</div>
                 </div>
               </div>
-              <div>hours ago</div>
+              <div>{sunsetHours} hours to go</div>
             </div>
           </div>
         </div>

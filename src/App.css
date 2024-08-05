@@ -153,6 +153,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 0px;
+  gap: 5px;
 }
 .condition-text {
   font-size: 1.2rem;

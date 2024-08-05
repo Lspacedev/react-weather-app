@@ -26,7 +26,9 @@ function Main({
   return (
     <div className={`Main ${theme}`}>
       <div className="main-header">
-        <div className="date">{dateText}</div>
+        <div className="date">
+          {dateText === "Invalid Date" ? "No date data" : dateText}
+        </div>
         <SearchLocation changeLocation={changeLocation} />
         <div className="theme-symbol-save-alert">
           <button className="theme-btn" onClick={changeTheme}>

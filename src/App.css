@@ -37,7 +37,9 @@ body {
 
 .main-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 50px;
   padding: 20px 25px;
 }
 .saved-btn,
@@ -62,13 +64,17 @@ body {
   display: none;
   padding: 15px 0px;
 }
-
+.sub-menu ul {
+  padding: 0px 25px;
+}
 .sub-menu li {
-  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 15px;
-  padding: 5px 50px;
+  padding: 5px 10px;
 }
 
 .sub-menu p {
@@ -77,6 +83,7 @@ body {
 }
 .sub-menu li:hover {
   background-color: whitesmoke;
+  border-radius: 20px;
 }
 .sub-menu li p:hover {
   color: #9cadce;
@@ -84,12 +91,9 @@ body {
   cursor: pointer;
 }
 
-.location-delete {
-  text-align: end;
-  padding: 0px 15px;
-}
 .location-delete:hover {
   color: red;
+  cursor: pointer;
 }
 
 .saved:hover .sub-menu {
@@ -159,6 +163,10 @@ body {
   align-items: center;
   margin: 0px 5px;
   padding: 0px;
+}
+
+.time {
+  font-weight: 600;
 }
 .city h2,
 p {
@@ -279,6 +287,7 @@ button {
   max-width: 500px;
   height: 40px;
   padding: 0px;
+
   display: flex;
   border-radius: 40px;
   border: 1px solid gray;
@@ -315,9 +324,9 @@ button {
 
 .daily-hourly {
   flex: 1;
-  text-align: start;
+  display: flex;
+  align-items: center;
   padding-left: 25px;
-  padding-bottom: 0px;
 }
 
 .daily-hourly div {
@@ -325,6 +334,9 @@ button {
   display: inline;
   font-size: 1.3rem;
   margin-right: 15px;
+}
+.daily-hourly div:hover {
+  color: #28498a;
 }
 
 .current {
@@ -341,7 +353,7 @@ button {
 .today-div h3 {
   text-align: start;
   color: #000614;
-  margin: 0px;
+  margin-bottom: 5px;
   padding-left: 25px;
 }
 
@@ -425,7 +437,7 @@ button {
 
 .alerts-menu {
   height: 100%;
-  width: 25%;
+  width: 23%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -443,15 +455,27 @@ button {
   padding-right: 15px;
   font-weight: bold;
 }
+.alerts-menu-close:hover {
+  cursor: pointer;
+  color: #000614;
+}
 
 .alerts-menu.enter {
   opacity: 1;
   right: 0;
 }
 
+.date {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #bdc0c5;
+  display: flex;
+  align-items: center;
+}
+
 .theme-symbol-save-alert {
   display: flex;
-  gap: 5px;
+  gap: 15px;
 }
 .theme-btn {
   border-radius: 5px;
@@ -490,20 +514,25 @@ button {
 }
 
 .alert-btn {
-  padding: 0px 15px;
   display: flex;
   align-items: center;
-  cursor: pointer;
-}
-
-#alert-icon {
-  font-size: 1.4rem;
   cursor: pointer;
   padding: 5px;
 }
 
+#alert-icon {
+  font-size: 1.4rem;
+
+  margin: 0px;
+  cursor: pointer;
+}
+
 #alert-icon:hover {
   color: #9cadce;
+}
+#alert-count {
+  margin-top: -25px;
+  margin-left: -5px;
 }
 
 .daily-card-icon {
@@ -594,6 +623,9 @@ button {
 .Sidebar.dark p {
   color: white;
 }
+.Sidebar.dark li:hover .location-delete {
+  color: black;
+}
 
 .Main.dark .main-header {
   background-color: #000614;
@@ -628,11 +660,18 @@ button {
   .saved-location-card-content {
     width: 90%;
   }
+  .Sidebar {
+    padding-bottom: 5px;
+  }
+  .Main.dark .main-header {
+    border-bottom: 1px solid white;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .main-header {
     flex-direction: column-reverse;
+    align-items: center;
   }
   .alerts-menu {
     width: 50%;

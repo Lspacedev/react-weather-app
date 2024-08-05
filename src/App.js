@@ -118,7 +118,10 @@ function App() {
     const filteredSavedLocation = savedLocations.filter(
       (location) => location !== name
     );
+    //alert("Location has been deleted!");
+
     setSavedLocations(filteredSavedLocation);
+    setLocationObj({});
   }
 
   return (

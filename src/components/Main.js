@@ -13,6 +13,10 @@ function Main({
   symbol,
   handleSaveLocation,
 }) {
+  let date = JSON.stringify(locationObj) !== "{}" ? locationObj.time : "";
+  date = date && date.match(/\d{4}\-\d{1,2}\-\d{2,4}/)[0];
+  let dateText = new Date(date);
+  dateText = dateText.toDateString();
   function open() {
     document.querySelector(".alerts-menu").classList.add("enter");
   }
@@ -22,6 +26,7 @@ function Main({
   return (
     <div className={`Main ${theme}`}>
       <div className="main-header">
+        <div className="date">{dateText}</div>
         <SearchLocation changeLocation={changeLocation} />
         <div className="theme-symbol-save-alert">
           <button className="theme-btn" onClick={changeTheme}>
@@ -36,7 +41,7 @@ function Main({
           </button>
           <div className="alert-btn" onClick={open}>
             <IoNotificationsOutline id="alert-icon" />
-            {alerts.length}
+            <div id="alert-count">{alerts.length}</div>
           </div>
         </div>
       </div>

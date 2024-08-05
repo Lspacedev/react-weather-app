@@ -3,6 +3,9 @@ import { TbSunset2 } from "react-icons/tb";
 import { BsCloudRainHeavy } from "react-icons/bs";
 
 function SavedLocationCard({ theme, locationObj, symbol }) {
+  let time = JSON.stringify(locationObj) !== "{}" ? locationObj.time : "";
+  time = time && time.match(/\d{1,2}:\d{2}/)[0];
+
   let currentTime =
     JSON.stringify(locationObj) !== "{}" ? locationObj.time : "";
   currentTime = currentTime && currentTime.match(/\d{1,2}:/)[0].split(":")[0];
@@ -20,7 +23,7 @@ function SavedLocationCard({ theme, locationObj, symbol }) {
   return (
     <div className={`saved-location-card ${theme}`}>
       {JSON.stringify(locationObj) !== "{}" ? (
-        <div>
+        <div className="saved-location-card-content">
           <div className="city-time">
             <div className="city">
               <h2>{locationObj.city}</h2>
@@ -28,7 +31,7 @@ function SavedLocationCard({ theme, locationObj, symbol }) {
                 {locationObj.region},{locationObj.country}
               </p>
             </div>
-            <div className="time">{locationObj.time}</div>
+            <div className="time">{time}</div>
           </div>
           <div className="temp-condition-text">
             <img src={`${locationObj.condition.icon}`} />
@@ -41,7 +44,7 @@ function SavedLocationCard({ theme, locationObj, symbol }) {
               <div className="condition-text">{locationObj.condition.text}</div>
             </div>
           </div>
-          <hr />
+          <div className="line"></div>
           <div className="chance-of-rain">
             <h4>Chance of rain</h4>
             <div className="chance-of-rain-info">

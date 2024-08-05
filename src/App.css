@@ -16,6 +16,7 @@ body {
 }
 .Sidebar {
   flex: 2;
+  background-color: rgb(226, 221, 221);
 }
 
 .Sidebar h3 {
@@ -67,17 +68,24 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 15px;
+  padding: 5px 50px;
 }
 
 .sub-menu p {
   color: #000614;
+  width: 100%;
 }
-
+.sub-menu li:hover {
+  background-color: whitesmoke;
+}
 .sub-menu li p:hover {
   color: #9cadce;
+
   cursor: pointer;
 }
+
 .location-delete {
+  text-align: end;
   padding: 0px 15px;
 }
 .location-delete:hover {
@@ -104,8 +112,23 @@ body {
 
 .saved-location-card {
   flex: 25%;
-  padding: 5px 10px;
+  padding: 50px 20px;
   background: linear-gradient(#9cadce, #102142);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.saved-location-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.line {
+  background-color: rgb(88, 88, 88);
+  width: 100%;
+  height: 1px;
+  margin: 5px 0px;
 }
 .temp-condition-text {
   margin: 0px 5px;
@@ -168,11 +191,11 @@ p {
 }
 
 #chance-of-rain-icon {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   color: #bdc0c5;
 }
 .sunrise-sunset {
-  margin: 0px 5px;
+  margin: 5px 5px;
 }
 
 .sunrise-sunset h4 {
@@ -188,6 +211,8 @@ p {
   align-items: center;
   border-radius: 10px;
   padding: 0px 0px;
+  margin: 5px 0px;
+  gap: 10px;
 }
 
 .sun-icon-info {
@@ -217,6 +242,7 @@ p {
   align-items: center;
   border-radius: 10px;
   padding: 5px 0px;
+  margin: 5px 0px;
 }
 
 .set-icon-info {
@@ -292,7 +318,6 @@ button {
   text-align: start;
   padding-left: 25px;
   padding-bottom: 0px;
-
 }
 
 .daily-hourly div {
@@ -300,7 +325,6 @@ button {
   display: inline;
   font-size: 1.3rem;
   margin-right: 15px;
-
 }
 
 .current {
@@ -319,7 +343,6 @@ button {
   color: #000614;
   margin: 0px;
   padding-left: 25px;
-
 }
 
 .Daily-cards {
@@ -357,8 +380,9 @@ button {
 }
 
 .Hourly-cards .HourlyHighlightCard {
+  flex: 1;
   background-color: white;
-  padding: 0px 50px;
+
   border-radius: 10px;
   box-shadow: 1px 1px 15px rgb(231, 231, 231);
 }
@@ -398,7 +422,6 @@ button {
   font-size: 1.7rem;
   color: #081124;
 }
-
 
 .alerts-menu {
   height: 100%;
@@ -488,68 +511,65 @@ button {
   color: #28498a;
 }
 
-
 .dark {
   background-color: black;
   color: white;
 }
 
-.Highlights.dark .card{
-  background-color: #000614;
-  color: white;
-  border: 1px solid white;
-  box-shadow: none;
-
-}
-
-.Highlights.dark .HourlyHighlightCard{
+.Highlights.dark .card {
   background-color: #000614;
   color: white;
   border: 1px solid white;
   box-shadow: none;
 }
 
-
-.Highlights.dark .daily-card-icon{
-  color: white;
-}
-
-.Highlights.dark .card p{
-  color: white;
-}
-
-.Highlights.dark .card h5{
-  color: white;
-}
-
-.Highlights.dark h3{
-  color: white;
-}
-
-.Highlights.dark .HourlyHighlightCard h4{
-  color: white;
-}
-
-.Highlights.dark .HourlyHighlightCard .hourly-temp{
-  color: white;
-}
-
-.Highlights.dark .TodayHighlightCard{
+.Highlights.dark .HourlyHighlightCard {
   background-color: #000614;
   color: white;
   border: 1px solid white;
   box-shadow: none;
 }
 
-.Highlights.dark .TodayHighlightCard .today-card-icon{
+.Highlights.dark .daily-card-icon {
   color: white;
 }
 
-.Highlights.dark .TodayHighlightCard h5{
+.Highlights.dark .card p {
   color: white;
 }
 
-.Highlights.dark .TodayHighlightCard p{
+.Highlights.dark .card h5 {
+  color: white;
+}
+
+.Highlights.dark h3 {
+  color: white;
+}
+
+.Highlights.dark .HourlyHighlightCard h4 {
+  color: white;
+}
+
+.Highlights.dark .HourlyHighlightCard .hourly-temp {
+  color: white;
+}
+
+.Highlights.dark .TodayHighlightCard {
+  background-color: #000614;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+.Highlights.dark .TodayHighlightCard .today-card-icon {
+  color: white;
+}
+
+.Highlights.dark .TodayHighlightCard h5 {
+  color: white;
+}
+
+.Highlights.dark .TodayHighlightCard p {
   color: white;
 }
 
@@ -559,9 +579,8 @@ button {
   border: 1px solid white;
 }
 
-.saved-location-card.dark .temp{
+.saved-location-card.dark .temp {
   color: white;
- 
 }
 
 .Sidebar.dark {
@@ -576,7 +595,6 @@ button {
   color: white;
 }
 
-
 .Main.dark .main-header {
   background-color: #000614;
 }
@@ -587,10 +605,8 @@ button {
 
 @media screen and (max-width: 1024px) {
   .Hourly-cards .HourlyHighlightCard {
-    padding: 0px 45px;
   }
 }
-
 
 @media screen and (max-width: 768px) {
   .App {
@@ -609,18 +625,22 @@ button {
   .Sidebar h3 {
     margin-bottom: 25px;
   }
-
+  .saved-location-card-content {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .main-header {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
   .alerts-menu {
     width: 50%;
   }
   .todays-highlights {
     grid-template-columns: auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
   .TodayHighlightCard {
     padding: 0px 100px;
@@ -629,15 +649,17 @@ button {
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   .Daily-cards .card {
     width: 90%;
-
   }
   .Hourly-cards {
-    gap: 15px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
   .HourlyHighlightCard {
@@ -653,5 +675,4 @@ button {
 }
 
 @media screen and (max-width: 320px) {
- 
 }

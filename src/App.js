@@ -11,8 +11,10 @@ function App() {
   const [symbol, setSymbol] = useLocalStorage("symbol", "Cel");
   const [alerts, setAlerts] = useState([]);
   const [err, setErr] = useState("");
-
   const [theme, setTheme] = useLocalStorage("theme", "light");
+
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
     function success(position) {
@@ -22,9 +24,9 @@ function App() {
 
       setLocationName(name);
     }
-    const error = (error) => {
+    function error(error) {
       console.log(error);
-    };
+    }
     if (locationName === "") {
       navigator.geolocation.getCurrentPosition(success, error);
     }
@@ -34,8 +36,8 @@ function App() {
     const storedCity = locationObj.city;
     if (locationName !== "" && locationName !== storedCity) {
       fetch(
-        `https://api.weatherapi.com/v1/forecast.json?key=1d668ceaba92432fb3890228240802&q=${locationName}&alerts=yes`,
-        { mode: "cors" },
+        `${apiUrl}/v1/forecast.json?key=${apiKey}&q=${locationName}&alerts=yes`,
+        { mode: "cors" }
       )
         .then((res) => res.json())
         .then((res) => {
@@ -43,7 +45,6 @@ function App() {
           let current = res.current;
           let forecast = res.forecast.forecastday[0];
           let alertsArr = res.alerts.alert;
-          console.log(res);
 
           const obj = {
             country: location.country,
@@ -82,6 +83,7 @@ function App() {
           setAlerts(alertsArr);
         })
         .catch((err) => {
+          console.log(err);
           setErr(err);
         });
     }
@@ -99,7 +101,7 @@ function App() {
   }
   function handleSaveLocation() {
     const findLocation = savedLocations.filter(
-      (location) => location === locationName,
+      (location) => location === locationName
     );
     if (locationName === "") {
       return;
@@ -114,10 +116,11 @@ function App() {
   }
   function handleDeleteSavedLocation(name) {
     const filteredSavedLocation = savedLocations.filter(
-      (location) => location !== name,
+      (location) => location !== name
     );
     setSavedLocations(filteredSavedLocation);
   }
+
   return (
     <div className={`App ${theme}`}>
       <Sidebar
@@ -126,6 +129,7 @@ function App() {
         changeLocation={changeLocation}
         handleDeleteSavedLocation={handleDeleteSavedLocation}
       />
+
       <Main
         alerts={alerts}
         locationObj={locationObj || {}}
